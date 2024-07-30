@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base target="_top">
+  <style>
+      table {
+        table-layout: auto;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table, td, th {
+        text-align: center; 
+        padding: 5px;
+        border: 1px solid;
+        border-color: Gainsboro;
+      }
+      td, th {
+        max-width:100%;
+      }
+      th {
+        background: Gainsboro;
+      }
+      p {
+        max-width: 20%;
+      }
+    </style>
+
+</head>
+
+<body>
+  <div>
+    <h1>Cases <?!= getBustedHours() ?> hours from busting TRT.</h1>
+    <table>
+      <tr>
+        <th>Case number</th>
+        <th>Subject</th>
+        <th>Owner</th>
+        <th>TRT hours</th>
+        <th>Status</th>
+        <th>priority</th>
+        <th>Escalated</th>
+        <th>Specialization</th>
+        <th>Last stutas update</th>
+        <th>opened bugs</th>
+      </tr>
+      <?!= getDailyBustedRows(); ?>
+    </table>
+  </div>
+  <div>
+    <h1>Bugs opened yesterday.</h1>
+    <table>
+      <tr>
+        <th>Case number</th>
+        <th>Subject</th>
+        <th>Owner</th>
+        <th>TRT hours</th>
+        <th>Status</th>
+        <th>priority</th>
+        <th>Escalated</th>
+        <th>Specialization</th>
+        <th>Last stutas update</th>
+        <th>opened bugs</th>
+      </tr>     
+      <?!= getDailyOpenedBugCasesRows(); ?>
+    </table>
+  </div>
+
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base target="_top">
+  <style>
+      table {
+        table-layout: auto;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table, td, th {
+        text-align: center; 
+        padding: 5px;
+        border: 1px solid;
+        border-color: Gainsboro;
+      }
+      td, th {
+        max-width:100%;
+      }
+      th {
+        background: Gainsboro;
+      }
+      p {
+        max-width: 20%;
+      }
+    </style>
+
+</head>
+
+<body>
+  <div>
+    <h1>Cases with open bugs that are <?!= getWeeklyDays() ?>+ days old.</h1>
+    <table>
+      <tr>
+    <!--#	Owner	Product	Case Number	Case Age	Last Case Update	# consults	Fist consult	Sum consult ages	# bugs	Fist bug	Sum bug ages	Bug Link	Bug Status	Bug Age	Last Bug Update -->
+        <th>Case number</th>
+        <th>Subject</th>
+        <th>Owner</th>
+        <th>Status</th>
+        <th>priority</th>
+        <th>Escalated</th>
+        <th>Specialization</th>
+        <th>Last stutas update</th>
+        <th># Consults</th>
+        <th>First Consult</th>
+        <th>Sum Consult ages</th>
+        <th>first bug</th>
+        <th>Sum bug ages</th>
+
+        <th>opened bugs</th>
+        <th>Bug status</th>
+        <th>bug age</th>
+        <th>stale <days(hours)></th>
+      </tr>
+      <?!= getWithBugCasesRows(); ?>
+    </table>
+  </div>
+  <div>
+    <h1>Cases without open bugs that are <?!= getWeeklyDays() ?>+ days old.</h1>
+    <!-- Owner	Product	Case Number	Status	Case Age	Last Case Update	# consults	Fist consult	Sum consult ages	# bugs	Fist bug	Sum bug ages -->
+    <table>
+      <tr>
+        <th>Case number</th>
+        <th>Subject</th>
+        <th>Owner</th>
+        <th>Status</th>
+        <th>priority</th>
+        <th>Escalated</th>
+        <th>Specialization</th>
+        <th>Last stutas update</th>
+        <th># Consults</th>
+        <th>First Consult</th>
+        <th>Sum Consult ages</th>
+        <th>first bug</th>
+        <th>Sum bug ages</th>
+      </tr>     
+      <?!= getWithoutBugCasesRows(); ?>
+    </table>
+  </div>
+
+</body>
+</html>
+
+  </body>
+</html>
+

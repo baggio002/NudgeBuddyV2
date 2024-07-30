@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base target="_top">
+  <style>
+      table {
+        table-layout: auto;
+        width: 100%;
+        border-collapse: collapse;
+      }
+      table, td, th {
+        text-align: center; 
+        padding: 5px;
+        border: 1px solid;
+        border-color: Gainsboro;
+      }
+      td, th {
+        max-width:100%;
+      }
+      th {
+        background: Gainsboro;
+      }
+      p {
+        max-width: 20%;
+      }
+    </style>
+
+</head>
+
+<body>
+  <div>
+    <p>Hello <?= getLdap(); ?>,</p>
+    <h1>Here are cases needs to pay attention</h1>
+    <p <?!= styles.styel_close_trt ?>>T = <?!= styles.trt_hours ?> hours to TRT</p>
+    <p <?!= styles.styel_long_wocr ?>>W = WOCR <?!= styles.wocr_hours ?> days(hours), consider to close.</p>
+    <p <?!= styles.styel_no_kcs ?>>K = missing KCS tag</p>
+    <p <?!= styles.styel_no_pfi ?>>P = missing PFI</p>
+    <p <?!= styles.styel_long_bugs ?>>B = Stable bugs assigned to you for <?!= styles.config_stale_bug_hours ?> days(hours)</p>
+    <p <?!= styles.styel_hc_missing_fd ?>>H = missing hard consult feedback</p>
+    <p <?!= styles.styel_lc_missing_fd ?>>L = missing live consult feedback</p>
+    <table>
+      <tr>
+        <th>REASON</th>
+        <th>CASE NUMBER</th>
+        <th>SUBJECT</th>
+        <th>STATUS</th>
+        <th>PRIORITY</th>
+        <th>ESCALATED</th>
+        <th>SPECIALIZATION</th>
+        <th>HOURS TO TRT</th>
+        <th>LAST STATUS UPDATE</th>
+        <th>NO KCS</th>
+        <th>NO PFI</th>
+        <th>OPENED BUGS</th>
+        <th>STALE BUGS<days(hours)></th>
+        <th>HC MISSING FEEDBACK</th>
+        <th>LC MISSING FEEDBACK</th>
+      </tr>
+      <?!= getFocusCasesRows(); ?>
+    </table>
+  </div>
+  <div>
+    <h1>Other opened cases</h1>
+    <table>
+      <tr>
+        <th>Case number</th>
+        <th>Subject</th>
+        <th>Status</th>
+        <th>priority</th>
+        <th>escalated</th>
+        <th>Specialization</th>
+        <th>hours to trt</th>
+        <th>last stutas update</th>
+        <th>no kcs</th>
+        <th>no pfi</th>
+        <th>opened bugs</th>
+        <th>long stale bugs<days(hours)></th>
+        <th>HC missing feedback</th>
+        <th>LC missing feedback</th>
+      </tr>     
+      <?!= getOtherCasesRows(); ?>
+    </table>
+  </div>
+
+</body>
+</html>
